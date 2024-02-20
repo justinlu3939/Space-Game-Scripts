@@ -133,6 +133,12 @@ public class ShipScript : MonoBehaviour
                 Debug.Log("Collided with object. lose health");
                 healthBar.value -= 2;
             }
+            if(hit.collider.gameObject.CompareTag("WorldBoundary"))
+            {
+                Debug.Log("Collided with boundary. Returning back to original.");
+                transform.position = originalPosition;
+                transform.rotation = initialRotation;
+            }
         }
     }
 
